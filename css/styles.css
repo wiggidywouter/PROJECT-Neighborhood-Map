@@ -1,0 +1,38 @@
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+#wrapper {
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 15px;
+}
+
+#places-search {
+  padding-bottom: 15px
+}
+
+#places-list {
+  height: calc(100vh - 85px);
+  overflow-y: scroll;
+  background-color: #F5F5F5; 
+}
+
+/* Bootstrap overrides */
+
+.list-group-item.select {
+  background-color: #F5F5F5;
+}
+
+.non-reactive {
+  pointer-events: none;
+}
+
+.reactive {
+  pointer-events: all;
+}
