@@ -7,7 +7,7 @@
     <title>Neighborhood Map</title>
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
     <!-- Styles CSS -->
     <link href="css/styles.css" rel="stylesheet">
 
@@ -38,27 +38,7 @@
             </div><!-- /input-group -->
             
             <div id="places-list" class="list-group reactive">
-              <a href="#" class="list-group-item">Cras justo odio</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item">Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item">Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item">Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
-              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item select">Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item">Vestibulum at eros</a>
+              <!-- <a href="#" class="list-group-item">Dummy list item</a> -->
             </div>
 
           </div>
@@ -70,13 +50,19 @@
     <div id="map"></div>
     
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
     <!-- Knockout JavaScript-->
-    <script src="js/knockout.js"></script>
+    <script src="js/lib/knockout.js"></script>
+    <!-- Places Data JavaScript -->
+    <script src="js/places-data.js"></script>
+    <!-- initMap() Javascript -->
+    <script src="js/init-map.js"></script>
+    <!-- initMarkers() Javascript -->
+    <script src="js/init-markers.js"></script>
     <!-- Main JavaScript -->
     <script src="js/main.js"></script>
     <!-- Google Maps JavaScript -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initialize"></script>
 </html>

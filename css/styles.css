@@ -18,8 +18,8 @@
 }
 
 #places-list {
-  height: calc(100vh - 85px);
-  overflow-y: scroll;
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
   background-color: #F5F5F5; 
 }
 
