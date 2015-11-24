@@ -1,7 +1,20 @@
+* {
+   outline: 0;
+}
+
 #map {
   width: 100vw;
   height: 100vh;
 }
+#content {
+  height:175px;
+  overflow: hidden;
+  cursor: pointer;
+}
+#content img {
+  padding-bottom: 7px;
+}
+
 
 #wrapper {
   position: absolute;
@@ -19,8 +32,12 @@
 
 #places-list {
   max-height: calc(100vh - 85px);
-  overflow-y: auto;
+  overflow: hidden;
   background-color: #F5F5F5; 
+}
+
+#logo {
+
 }
 
 /* Bootstrap overrides */

@@ -1,47 +1,64 @@
-function initMarkers () {
-  
-  var createListItem = function (marker){
-    
-    var el = $('<a href="#" class="list-group-item">' + marker.title + '</a>');
-    
-    el.on('click', function(){
-      google.maps.event.trigger(marker, 'click');
-    });
+/*
+  Description:
+  1. Loops through all places data then calls _createMarker() for every item
+  2. Within the _createMarker() function _createListItem() gets called for every item
+*/
 
-    $('#places-list').prepend(el);
+var placesList = ko.observableArray();
+
+function initMarkers () {
+
+  var _createListItem = function (marker){
+    
+    var triggerMarkClick = function() {
+      google.maps.event.trigger(marker, 'click');
+      appViewModel.searchField('');
+      appViewModel.searchPlaces('');
+    };
+
+    placesList.push({name: marker.title, trigger: triggerMarkClick, show: ko.observable(true) });
+
   };
 
-  var createMarker = function (marker_data){
+  var _createMarker = function (place_data){
 
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng( marker_data.coords.lat, marker_data.coords.lng),
+      position: new google.maps.LatLng( place_data.coords.lat, place_data.coords.lng ),
       map: map,
-      title: marker_data.name
+      icon: 'img/blue-marker.png',
+      title: place_data.name
     });
     
     google.maps.event.addListener(marker, 'click', onMarkerClick);
-
-    createListItem(marker);
+    // -> _createListItem
+    _createListItem(marker);
   };
-  
+
   var onMarkerClick = function() {
 
     var marker = this;
 
-    var contentString = '<div id="content"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">' + marker.title + '</h1><div id="bodyContent"><p><b>' + marker.title + '</b>, is a very interesting place. A must see when visiting Rotterdam.</p></div></div>';
+    var contentString = '<div id="content" class="dragscroll"><div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">' + marker.title + '</h1><div id="bodyContent"><div id="info-window"><p><b>' + marker.title + '</b>, is a very interesting place. A must see when visiting Rotterdam.</p><span data-bind="html: placeDetails"></span></div></div></div>';
 
     infowindow.setContent(contentString);
 
     infowindow.open(map, marker);
+    
+    infoViewModel.placeDetails('');
+    
+    ko.applyBindings(infoViewModel, document.getElementById('info-window'));
+    
+    getDetails(marker.title);
   };
 
-  var infowindow = new google.maps.InfoWindow;
+  var infowindow = new google.maps.InfoWindow({maxWidth:350, maxHeight:50});
 
   google.maps.event.addListener(map, 'click', function() {
     infowindow.close();
   });
 
-  for (index in placesData) {
-    createMarker( placesData[index] ); 
+  for (index in placesData){
+    _createMarker( placesData[index] );
   }
+
 }

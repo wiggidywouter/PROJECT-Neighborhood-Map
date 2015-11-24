@@ -17,28 +17,28 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <link href='https://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="wrapper" class="non-reactive">
       <div class="container-fluid">
         <div class="row">
           
-          <div class="col-md-3 reactive">
-
+          <div class="col-sm-3 col-md-3 reactive">
+              <div id="logo"></div>
           </div>
           
-          <div class="col-md-3 col-md-offset-6">
+          <div class="col-sm-3col-md-3 col-md-offset-6 col-sm-offset-6">
             
-            <div id="places-search" class="input-group reactive">
-              <input type="text" class="form-control" placeholder="Search places...">
+            <form data-bind="submit: searchPlaces" id="places-search" class="input-group reactive">
+              <input data-bind="value: searchField, valueUpdate: 'afterkeydown', event: {keyup: searchPlaces} " type="text" class="form-control" placeholder="Search places">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Search</button>
+                <button type="submit" class="btn btn-default" type="button">Search</button>
               </span>
-            </div><!-- /input-group -->
+            </form><!-- /input-group -->
             
-            <div id="places-list" class="list-group reactive">
-              <!-- <a href="#" class="list-group-item">Dummy list item</a> -->
+            <div data-bind="foreach: placesList" id="places-list" class="list-group dragscroll reactive">
+              <a data-bind="text: name, click: trigger, visible: show" href="#" class="list-group-item"></a>
             </div>
 
           </div>
@@ -49,20 +49,27 @@
 
     <div id="map"></div>
     
+<!--     <span style="position: absolute; z-index: 1; left: 15px; display: inline; top: 300px; background-color: rgb(255, 255, 255); padding: 2px 5px;"></span> -->
+
     <!-- jQuery -->
     <script src="js/lib/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="js/lib/bootstrap.min.js"></script>
     <!-- Knockout JavaScript-->
     <script src="js/lib/knockout.js"></script>
+    <!-- Dragscroll JavaScript-->
+    <script src="js/lib/dragscroll.js"></script>
     <!-- Places Data JavaScript -->
     <script src="js/places-data.js"></script>
     <!-- initMap() Javascript -->
     <script src="js/init-map.js"></script>
     <!-- initMarkers() Javascript -->
     <script src="js/init-markers.js"></script>
+    <!-- getDetails() Javascript -->
+    <script src="js/get-details.js"></script>
     <!-- Main JavaScript -->
     <script src="js/main.js"></script>
     <!-- Google Maps JavaScript -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initialize"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initialize"></script>
+
 </html>
