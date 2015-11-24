@@ -7,7 +7,7 @@
   height: 100vh;
 }
 #content {
-  height:175px;
+  height:300px;
   overflow: hidden;
   cursor: pointer;
 }
