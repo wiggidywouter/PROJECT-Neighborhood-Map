@@ -8,7 +8,7 @@ function getDetails (query){
       console.log(place);
 
       var html = '';
-      html += (place.photos[0]) ? '<img src="' + place.photos[0].getUrl({'maxWidth': 350, 'maxHeight': 350}) + '" alt="' + place.name +'">' : '';
+      html += (place.photos[0]) ? '<img src="' + place.photos[0].getUrl({'maxWidth': 350}) + '" alt="' + place.name +'">' : '';
       html += (place.formatted_address) ? '<span class="clearfix">' + place.formatted_address + '</span>' : '';
       html += (place.website) ? '<a href="' + place.website + '">' + place.website + '</a>' + '<br>' : '';
       html += (place.formatted_phone_number) ? 'Tel: ' + place.formatted_phone_number : '';   

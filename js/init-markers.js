@@ -51,7 +51,7 @@ function initMarkers () {
     getDetails(marker.title);
   };
 
-  var infowindow = new google.maps.InfoWindow({maxWidth:350, maxHeight:50});
+  var infowindow = new google.maps.InfoWindow({maxWidth:350});
 
   google.maps.event.addListener(map, 'click', function() {
     infowindow.close();
