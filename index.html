@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- Styles CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="wrapper" class="non-reactive">
+      <div class="container-fluid">
+        <div class="row">
+          
+          <div class="col-xs-7 col-md-3 reactive">
+              <div id="logo"></div>
+          </div>
+          
+          <div class="col-xs-5 col-md-3 col-md-offset-6">
+            
+            <form data-bind="submit: searchPlaces" id="places-search" class="input-group reactive">
+              <input data-bind="value: searchField, valueUpdate: 'afterkeydown', event: {keyup: searchPlaces} " type="text" class="form-control" placeholder="Search places">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" type="button">Search</button>
+              </span>
+            </form><!-- /input-group -->
+            
+            <div data-bind="foreach: placesList" id="places-list" class="list-group dragscroll reactive">
+              <a data-bind="text: name, click: trigger, visible: show" href="#" class="list-group-item"></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="map"></div>
+    
+<!--     <span style="position: absolute; z-index: 1; left: 15px; display: inline; top: 300px; background-color: rgb(255, 255, 255); padding: 2px 5px;"></span> -->
+
+    <!-- jQuery -->
+    <script src="js/lib/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <!-- Knockout JavaScript-->
+    <script src="js/lib/knockout.js"></script>
+    <!-- Dragscroll JavaScript-->
+    <script src="js/lib/dragscroll.js"></script>
+    <!-- Places Data JavaScript -->
+    <script src="js/places-data.js"></script>
+    <!-- initMap() Javascript -->
+    <script src="js/init-map.js"></script>
+    <!-- initMarkers() Javascript -->
+    <script src="js/init-markers.js"></script>
+    <!-- getDetails() Javascript -->
+    <script src="js/get-details.js"></script>
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    <!-- Google Maps JavaScript -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initialize"></script>
+
+</html>
